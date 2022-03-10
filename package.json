@@ -1,0 +1,32 @@
+{
+  "name": "kubc_lab_zookeeper_optimized",
+  "version": "1.0.2",
+  "description": "Optimize existing codes and add zookeeper bookeeping functionality",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TTKHScriptPoetry/KUBC_LAB_Zookeeper_Optimized.git"
+  },
+  "keywords": [
+    "front",
+    "end",
+    "development",
+    "node.js",
+    "express.js",
+    "post",
+    "get"
+  ],
+  "author": "student",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TTKHScriptPoetry/KUBC_LAB_Zookeeper_Optimized/issues"
+  },
+  "homepage": "https://github.com/TTKHScriptPoetry/KUBC_LAB_Zookeeper_Optimized#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
