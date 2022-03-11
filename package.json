@@ -4,7 +4,7 @@
   "description": "Optimize existing codes and add zookeeper bookeeping functionality",
   "main": "server.js",
   "scripts": {
-    "test": "node server",
+    "test": "jest",
     "start": "node server.js"
   },
   "repository": {
@@ -28,5 +28,8 @@
   "homepage": "https://github.com/TTKHScriptPoetry/KUBC_LAB_Zookeeper_Optimized#readme",
   "dependencies": {
     "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }
