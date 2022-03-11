@@ -3,8 +3,8 @@ const { filterByQuery, findById, createNewAnimal, validateAnimal } = require('..
 const { animals } = require('../../data/animals');
 
 // start an instance of Router
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 // const router = require('express').Router();
 
 router.use(express.static('public')); //this works

@@ -5,7 +5,7 @@ const path = require('path');
 const apiRoutes = require('./routes/apiRoutes'); // will read the index.js files in each of the directories indicated
 const htmlRoutes = require('./routes/htmlRoutes'); // the index.js file will be the default file read if no other file is provided
 
-const { animals } = require('./data/animals.json');
+// const { animals } = require('./data/animals.json');
  
 // const PORT = 3001;
 const MYPORT = process.env.PORT || 3003;
@@ -55,6 +55,7 @@ app.listen(MYPORT, () => {
   console.log(`Example app listening at http://localhost:${MYPORT}/`); // index pages
   console.log(`Example app listening at http://localhost:${MYPORT}/api/animals`);
   console.log(`Example app listening at https://mercuryktzookeeper.herokuapp.com/api/animals`);
+  console.log(`Example app listening at http://localhost:${MYPORT}/api/zookeepers`);
   console.log ('---------------');
-  console.log (process.env.PORT); // prints undifine within local directory
+  // console.log (process.env.PORT); // prints undifine within local directory
  });

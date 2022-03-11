@@ -1,8 +1,8 @@
 const $displayArea = document.querySelector('#display-area');
+const $zookeeperForm = document.querySelector("#zookeeper-form");
 
 const printResults = resultArr => {
   console.log(resultArr);
-
   const animalHTML = resultArr.map(({ id, name, age, favoriteAnimal }) => {
     return `
   <div class="col-12 col-md-5 mb-3">
@@ -16,15 +16,23 @@ const printResults = resultArr => {
   </div>
     `;
   });
-
   $displayArea.innerHTML = animalHTML.join('');
 };
 
-const getZookeepers = () => {
-  fetch('/api/zookeepers')
+const getZookeepers = (formData = {}) => {
+  let queryUrl = '/api/zookeepers?';
+  console.log('------------');
+  console.log(formData);  // prints Object age: "29" name: "Emmy"
+  console.log('------------');
+  Object.entries(formData).forEach(([key, value]) => {
+    queryUrl += `${key}=${value}&`;
+    console.log(queryUrl);  //   /api/zookeepers?name=Emmy&
+                            //   /api/zookeepers?name=Emmy&age=29&
+  });
+  fetch(queryUrl)  // use data obtain to print result
     .then(response => {
       if (!response.ok) {
-        return alert('Error: ' + response.statusText);
+        return alert(`Error: ${response.statusText}`);
       }
       return response.json();
     })
@@ -33,5 +41,34 @@ const getZookeepers = () => {
       printResults(zookeeperArr);
     });
 };
+
+// const getZookeepers = () => {
+//   fetch('/api/zookeepers')
+//     .then(response => {
+//       if (!response.ok) {
+//         return alert('Error: ' + response.statusText);
+//       }
+//       return response.json();
+//     })
+//     .then(zookeeperArr => {
+//       console.log(zookeeperArr);
+//       printResults(zookeeperArr);
+//     });
+// };
+
+const handleGetZookeepersSubmit = event => {
+  event.preventDefault();
+  const nameHTML = $zookeeperForm.querySelector('[name="name"]');
+  const name = nameHTML.value;
+
+  const ageHTML = $zookeeperForm.querySelector('[name="age"]');
+  const age = ageHTML.value;
+
+  const zookeeperObject = { name, age };
+
+  getZookeepers(zookeeperObject);
+};
+
+$zookeeperForm.addEventListener('submit', handleGetZookeepersSubmit);
 
 getZookeepers();

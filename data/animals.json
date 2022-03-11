@@ -190,6 +190,15 @@
         "goofy"
       ],
       "id": "19"
+    },
+    {
+      "name": "ThursAnimalName",
+      "species": "ThursdaySpecies",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "anxious"
+      ],
+      "id": "20"
     }
   ]
 }
