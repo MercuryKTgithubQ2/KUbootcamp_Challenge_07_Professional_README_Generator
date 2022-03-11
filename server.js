@@ -15,11 +15,14 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
+
+app.use(express.static('public')); // must go before define routing seen below:
+
 // app.use('/api', apiRoutes);
-app.use('/', apiRoutes);
+app.use('/api', apiRoutes); //bad idea
 app.use('/', htmlRoutes);
 
-// app.use(express.static('public')); //no longer work
+
 
 // function createNewAnimal(body, animalsArray) {
 //   const animal = body;

@@ -6,7 +6,7 @@ const { zookeepers } = require('../../data/zookeepers');
 const express = require('express')
 const router = express.Router()
 
-router.get("/api/zookeepers", (req, res) => {
+router.get("/zookeepers", (req, res) => { // router.get("/api/zookeepers", (req, res) => {
    let results = zookeepers;
    if (req.query) {
      results = filterByQuery(req.query, results);
@@ -14,7 +14,7 @@ router.get("/api/zookeepers", (req, res) => {
    res.json(results);
  });
 
- router.get("/api/zookeepers/:id", (req, res) => {
+ router.get("/zookeepers/:id", (req, res) => { //  router.get("/api/zookeepers/:id", (req, res) => {
    const result = findById(req.params.id, zookeepers);
    if (result) {
      res.json(result);
@@ -23,7 +23,7 @@ router.get("/api/zookeepers", (req, res) => {
    }
  });
 
- router.post("/api/zookeepers", (req, res) => {
+ router.post("/zookeepers", (req, res) => {//  router.post("/api/zookeepers", (req, res) => {
    req.body.id = zookeepers.length.toString();
    if (!validateZookeeper(req.body)) {
      res.status(400).send("The zookeeper is not properly formatted.");

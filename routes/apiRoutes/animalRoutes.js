@@ -7,11 +7,11 @@ const express = require('express');
 const router = express.Router();
 // const router = require('express').Router();
 
-router.use(express.static('public')); //this works
+// router.use(express.static('public')); // this works when route is at root app.use('/', htmlRoutes); and app.use('/', apiRoutes); 
 
  // parameter-1: a string that describes the route the client will have to fetch from
  // parameter-2: callback function that will execute every time that route is accessed with a GET request
- router.get('/api/animals/:id', (req, res) => {
+ router.get('/animals/:id', (req, res) => { //  router.get('/api/animals/:id', (req, res) => {
    const result = findById(req.params.id, animals);
    if (result) {
      res.json(result);
@@ -20,7 +20,7 @@ router.use(express.static('public')); //this works
    }
  });
  
- router.get('/api/animals', (req, res) => { 
+ router.get('/animals', (req, res) => {  //  router.get('/api/animals', (req, res) => { 
    // res.json(animals); 
    //res parameter (short for response) to send the string Hello! to our client.
      let results = animals;
@@ -34,7 +34,7 @@ router.use(express.static('public')); //this works
      // console.log(results); // print the json data
  });
 
- router.post('/api/animals', (req, res) => {
+ router.post('/animals', (req, res) => { //  router.post('/api/animals', (req, res) => {
 
    // set id based on what the next index of the array will be
    req.body.id = animals.length.toString();
